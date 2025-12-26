@@ -50,12 +50,12 @@ void setup() {
   // Віддавати статичні файли
   server.serveStatic("/", LittleFS, "/").setDefaultFile("index.html");
 
-  server.on("/on", HTTP_GET, [](AsyncWebServerRequest *request){
+  server.on("/ON", HTTP_GET, [](AsyncWebServerRequest *request){
   digitalWrite(LED_PIN, HIGH);
   request->send(200, "text/plain", "LED ON");
 });
 
-server.on("/off", HTTP_GET, [](AsyncWebServerRequest *request){
+server.on("/OFF", HTTP_GET, [](AsyncWebServerRequest *request){
   digitalWrite(LED_PIN, LOW);
   request->send(200, "text/plain", "LED OFF");
 });
